@@ -27,3 +27,9 @@ module "iam" {
   source = "./iam"
   app_name = var.app_name
 }
+
+module "network" {
+  source   = "./network"
+  app_name = var.app_name
+  azs      = var.azs
+}
