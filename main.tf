@@ -86,3 +86,8 @@ module "elasticache" {
   vpc_id = module.network.vpc_id
   private_subnet_ids = module.network.private_subnet_ids
 }
+
+module "ecs_cluster" {
+  source = "./ecs_cluster"
+  app_name = var.app_name
+}
