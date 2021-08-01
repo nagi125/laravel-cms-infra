@@ -122,3 +122,10 @@ module "ec2" {
   vpc_id    = module.network.vpc_id
   subnet_id = module.network.ec2_subnet_id
 }
+
+module ses {
+  source = "./ses"
+
+  zone   = var.zone
+  domain = var.domain
+}
