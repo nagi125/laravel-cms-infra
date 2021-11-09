@@ -1,27 +1,3 @@
-variable "app_name" {
-  type = string
-}
-
-variable "vpc_id" {
-  type = string
-}
-
-variable "public_subnet_ids" {
-  type = list(string)
-}
-
-variable "zone" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
-variable "acm_id" {
-  type = string
-}
-
 resource "aws_security_group" "main" {
   name        = "${var.app_name}-alb"
   description = "${var.app_name} alb"
@@ -126,10 +102,3 @@ resource "aws_route53_record" "main" {
   }
 }
 
-output "http_listener_arn" {
-  value = aws_lb_listener.http.arn
-}
-
-output "https_listener_arn" {
-  value = aws_lb_listener.https.arn
-}
