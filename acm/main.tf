@@ -1,15 +1,3 @@
-variable "app_name" {
-  type = string
-}
-
-variable "zone" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
 data "aws_route53_zone" "main" {
   name = var.zone
   private_zone = false
@@ -50,8 +38,4 @@ resource "aws_acm_certificate_validation" "main" {
   certificate_arn = aws_acm_certificate.main.arn
 
   validation_record_fqdns = [for record in aws_route53_record.main : record.fqdn]
-}
-
-output "acm_id" {
-  value = aws_acm_certificate.main.id
 }
