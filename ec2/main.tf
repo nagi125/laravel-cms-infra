@@ -1,15 +1,3 @@
-variable "app_name" {
-  type = string
-}
-
-variable "vpc_id" {
-  type = string
-}
-
-variable "subnet_id" {
-  type = string
-}
-
 # SecurityGroup
 resource "aws_security_group" "main" {
   vpc_id = var.vpc_id
