@@ -1,7 +1,3 @@
-variable "app_name" {
-  type = string
-}
-
 resource "aws_ecs_cluster" "main" {
   name = var.app_name
 
@@ -9,8 +5,4 @@ resource "aws_ecs_cluster" "main" {
     name  = "containerInsights"
     value = "enabled"
   }
-}
-
-output "cluster_name" {
-  value = aws_ecs_cluster.main.name
 }
