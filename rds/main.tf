@@ -1,27 +1,3 @@
-variable "app_name" {
-  type = string
-}
-
-variable "vpc_id" {
-  type = string
-}
-
-variable "private_subnet_ids" {
-  type = list(string)
-}
-
-variable "database_name" {
-  type = string
-}
-
-variable "master_username" {
-  type = string
-}
-
-variable "master_password" {
-  type = string
-}
-
 locals {
   name = "${var.app_name}-pgsql"
 }
@@ -81,8 +57,4 @@ resource "aws_db_instance" "this" {
   # Storage
   allocated_storage     = 10
   max_allocated_storage = 30
-}
-
-output "endpoint" {
-  value = aws_db_instance.this.endpoint
 }
